@@ -1,0 +1,37 @@
+#  ------------ General options ----------------------------------------
+experimentID = "svhn_robust_student_"
+
+save_path = "./save_svhn/"
+dataPath = ["dummy.pt"]
+dataset = "deep_inversion_svhn" # options: imagenet | cifar100 | cifar10
+nGPU = 1  # number of GPUs to use by default
+GPU = 0  # default gpu to use, options: range(nGPU)
+visible_devices = "0"
+
+# ------------- Data options -------------------------------------------
+nThreads = 8  # number of data loader threads
+nClasses = 10  # number of classes in the dataset
+
+# ---------- Optimization options for S --------------------------------------
+nEpochs = 200  # number of total epochs to train 400
+batchSize = 200  # batchsize
+momentum = 0.9  # momentum 0.9
+weightDecay = 1e-4  # weight decay 1e-4
+opt_type = "SGD"
+warmup_epochs = 0 # number of epochs for warmup
+
+lr_S = 0.0001 # initial learning rate = 0.00001
+lrPolicy_S = "multi_step"  # options: multi_step | linear | exp | const | step
+step_S = [200]  # step for linear or exp learning rate policy default [100, 200, 300]
+decayRate_S = 1.0 # lr decay rate
+
+# ---------- Model options ---------------------------------------------
+from_scratch = False
+teacher_wt = None
+
+# ----------KD options ---------------------------------------------
+temperature = 20
+
+# --------- Adversarial Train -----------------------------------
+advloss_wt = 1.0
+kdloss_wt = 1.0

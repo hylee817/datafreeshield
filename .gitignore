@@ -1,0 +1,16 @@
+*.csv
+**/out.*
+**/save_*
+*/__pycache__/
+**/__pycache__/
+**/*.pt
+*.pt
+**/data/
+**/dataset/
+**/*.pth
+*.pth
+out*.png
+runs/
+*.log
+.DS_Store
+**/.DS_Store

@@ -20,7 +20,7 @@ from PIL import Image
 import csv
 import psutil
 
-from train.robustness_utils.dfs_loss import loss_dfs
+from train.robustness_utils.dfshield import loss_dfshield
 from robustness_utils.perturb import perturb_input
 
 __all__ = ["Trainer"]
@@ -213,11 +213,8 @@ class Trainer(object):
 			T = self.settings.temperature
 			loss_KD = (T*T) * kl_divergence(F.log_softmax(output/T, dim=1), F.softmax(output_t.detach()/T, dim=1))
 
-			if self.d == 0:  #standard training (Knowledge Distillation)
-				loss_CE = cross_entropy(output, labels)
-				loss_S = loss_KD + loss_CE
-			else:
-				output_adv, loss_adv, loss_r, loss_t = loss_dfs(model=model_proxy,
+			if self.advloss == "DFShieldLoss":
+				output_adv, loss_adv, loss_r, loss_t = loss_dfshield(model=model_proxy,
 								x_natural=images,
 								y=labels,
 								teacher_outputs=output_t.detach(),
@@ -235,6 +232,10 @@ class Trainer(object):
 				survivors = (preds_adv == labels).nonzero()
 				correct_adv += len(survivors)
 				loss_S = self.r * loss_KD + self.d * loss_adv
+
+			else: #standard training (Knowledge Distillation)
+				loss_CE = cross_entropy(output, labels)
+				loss_S = loss_KD + loss_CE
 
 
 			# update bn stats IMPORTANT 

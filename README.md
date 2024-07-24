@@ -55,16 +55,16 @@ For faster generation, we run multiple jobs in parallel on different GPUs and me
 [DI]: https://github.com/NVlabs/DeepInversion
 
 ```
-python3 generate.py --model resnet20_cifar10 --save_root ./rn20_cifar10/ --num_total_images 10000 --seed [random_seed] --gpu [gpu_id]
-python3 generate.py --model resnet56_cifar10 --save_root ./rn56_cifar10/ --num_total_images 10000 --seed [random_seed] --gpu [gpu_id]
-python3 generate.py --model wrn28_10_cifar10 --save_root ./wrn28_cifar10/ --num_total_images 10000 --seed [random_seed] --gpu [gpu_id]
+python3 generate.py --model resnet20_cifar10 --save_root datasets/rn20_cifar10/ --num_total_images 10000 --seed [random_seed] --gpu [gpu_id]
+python3 generate.py --model resnet56_cifar10 --save_root datasets/rn56_cifar10/ --num_total_images 10000 --seed [random_seed] --gpu [gpu_id]
+python3 generate.py --model wrn28_10_cifar10 --save_root datasets/wrn28_cifar10/ --num_total_images 10000 --seed [random_seed] --gpu [gpu_id]
 
-python3 generate.py --model resnet20_svhn --save_root ./rn20_svhn/ --num_total_images 10000 --seed [random_seed] --gpu [gpu_id]
-python3 generate.py --model resnet56_svhn --save_root ./rn56_svhn/ --num_total_images 10000 --seed [random_seed] --gpu [gpu_id]
-python3 generate.py --model wrn28_10_svhn --save_root ./wrn28_svhn/ --num_total_images 10000 --seed [random_seed] --gpu [gpu_id]
+python3 generate.py --model resnet20_svhn --save_root datasets/rn20_svhn/ --num_total_images 10000 --seed [random_seed] --gpu [gpu_id]
+python3 generate.py --model resnet56_svhn --save_root datasets/rn56_svhn/ --num_total_images 10000 --seed [random_seed] --gpu [gpu_id]
+python3 generate.py --model wrn28_10_svhn --save_root datasets/wrn28_svhn/ --num_total_images 10000 --seed [random_seed] --gpu [gpu_id]
 
-python3 generate_biomedical.py --model resnet18 --data_flag tissuemnist --save_root ./rn18_tissue/ --num_total_images 10000 --seed [random_seed] --gpu [gpu_id]
-python3 generate_biomedical.py --model resnet50 --data_flag tissuemnist --save_root ./rn50_tissue/ --num_total_images 10000 --seed [random_seed] --gpu [gpu_id]
+python3 generate_biomedical.py --model resnet18 --data_flag tissuemnist --save_root datasets/rn18_tissue/ --num_total_images 10000 --seed [random_seed] --gpu [gpu_id]
+python3 generate_biomedical.py --model resnet50 --data_flag tissuemnist --save_root datasets/rn50_tissue/ --num_total_images 10000 --seed [random_seed] --gpu [gpu_id]
 ```
 
 ### Merge Dataset

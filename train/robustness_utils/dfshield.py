@@ -14,7 +14,7 @@ def l2_norm(x):
     return squared_l2_norm(x).sqrt()
 
 
-def loss_dfs(model,
+def loss_dfshield(model,
                 x_natural,
                 y,
                 teacher_outputs,
@@ -94,7 +94,7 @@ def loss_dfs(model,
     # optimizer.zero_grad()
     # for p in model.parameters():
     #     p.grad = None
-    
+
     # calculate robust loss
     logits = model(x_natural)
     logits_adv = model(x_adv)

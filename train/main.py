@@ -303,7 +303,7 @@ def main():
 	#--------------------train
 	parser.add_argument('--model', type=str, default='resnet20')
 
-	parser.add_argument('--advloss', type=str)
+	parser.add_argument('--advloss', type=str, default="DFShieldLoss")
  
 	parser.add_argument('--advloss_wt', type=float, default=1.0,
 	help="Hyperparameter to control Adversarial Loss. 0.0 deactivates adversarial training")
@@ -311,7 +311,6 @@ def main():
 	help="Hyperparameter to control Distillation Loss. 0.0 deactivates kd loss=(CE(S(x)) + KL(S(x),T(x))")
 	parser.add_argument('--beta', type=float, default=1.0)
 	parser.add_argument('--gamma', type=float, default=1.0)
-
 	parser.add_argument("--inner_max", type=str, choices=["ce", "kl"], default="kl")
 	
 	#--------------------eval
@@ -321,7 +320,6 @@ def main():
 	parser.add_argument('--train_eps', type=float, default=4, help='Epsilon for Adversarial Training')
 	parser.add_argument('--train_step_size',type=float, default=1)
 	parser.add_argument('--train_steps', type=int, default=10)
-
 	parser.add_argument('--norm', type=str, default='l_inf', choices=['l_inf', 'l_2'])
  
 	#------------------record
